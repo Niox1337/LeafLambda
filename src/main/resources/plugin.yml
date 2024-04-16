@@ -1,0 +1,4 @@
+name: LeafLambda
+version: '${project.version}'
+main: lol.niox.leaflambda.LeafLambda
+api-version: '1.20'
