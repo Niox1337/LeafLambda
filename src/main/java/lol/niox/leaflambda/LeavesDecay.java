@@ -1,8 +1,7 @@
 package lol.niox.leaflambda;
 
-import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.data.BlockData;
 import org.bukkit.block.data.type.Leaves;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,10 +23,14 @@ public class LeavesDecay implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
-        Block block = event.getBlock();
+        if (player.getInventory().getItemInMainHand().getType() == Material.SHEARS) {
+            return;
+        }
         if (players.contains(player)){
             return;
         }
+        Block block = event.getBlock();
+
         String blockType = block.getType().toString();
         if (blockType.contains("LOG") || blockType.contains("LEAVES")) {
 
