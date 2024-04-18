@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class Decay extends BukkitRunnable {
     LeafLambda plugin;
-    private HashSet<Block> leaves;
+    private final HashSet<Block> leaves;
     private final Player player;
     private short times = 0;
 
